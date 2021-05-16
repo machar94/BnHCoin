@@ -1,4 +1,4 @@
-from gymcoin import db, loginManager
+from bnhcoin import db, loginManager
 from datetime import time, datetime
 from flask_login import UserMixin
 

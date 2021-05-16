@@ -9,3 +9,8 @@ dependencies:
   - flask
   - pycrypto
   - requests
+  - flask-sqlalchemy
+  - flask-bcrypt
+  - flask-login
+  - flask-wtf
+  - email_validator
