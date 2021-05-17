@@ -7,7 +7,7 @@ dependencies:
   - python=3.9
   - jsonpickle # conda-forge
   - flask
-  - pycrypto
+  - pycryptodome
   - requests
   - flask-sqlalchemy
   - flask-bcrypt

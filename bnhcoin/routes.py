@@ -1,24 +1,21 @@
-from bnhcoin.models import User
 from bnhcoin.forms import *
 from flask import Flask, jsonify, request, render_template, url_for, flash, redirect
-from bnhcoin import app, db, bcrypt
-from bnhcoin import blockchainObj
+from bnhcoin import app, db, bcrypt, blockchain_obj
 from flask_login import login_user, current_user, logout_user, login_required
 from Crypto.PublicKey import RSA
 import requests
+
 #FLASK ROUTES 
 @app.route("/")
 @app.route("/home")
 def home():
-    blockchainObj.resolveConflicts();
-    return render_template('blockchain.html', title = "Blockchain", blockchain = blockchainObj);
-
+    blockchain_obj.resolveConflicts();
+    return render_template('blockchain.html', title = "Blockchain", blockchain = blockchain_obj);
 
 @app.route("/blockchain")
 def blockchain():
-    #print(type(blockchainObj.chain));
-    blockchainObj.resolveConflicts();
-    return render_template('blockchain.html', title = "Blockchain", blockchain = blockchainObj);
+    blockchain_obj.resolveConflicts();
+    return render_template('blockchain.html', title = "Blockchain", blockchain = blockchain_obj);
 
 @app.route("/transaction", methods=['GET', 'POST'])
 def transaction():
@@ -30,21 +27,21 @@ def transaction():
         print("hi");
         #print(form.sender.data, form.reciever.data, form.amount.data, form.key.data);
         #print(type(form.key.data));
-        feedback = blockchainObj.addTransaction(form.sender.data, form.reciever.data, form.amount.data, form.key.data, form.key.data);
+        feedback = blockchain_obj.addTransaction(form.sender.data, form.reciever.data, form.amount.data, form.key.data, form.key.data);
         if feedback:
             flash(f'Transaction Made!', 'success');
         else:
             flash(f'Error!', 'danger');
-        return render_template('transaction.html', title = "Transaction", blockchain = blockchainObj, form=form, formNL= formNL); 
+        return render_template('transaction.html', title = "Transaction", blockchain = blockchain_obj, form=form, formNL= formNL); 
 
     if formNL.validate_on_submit():
         return redirect(url_for('login'));
 
-    return render_template('transaction.html', title = "Transaction", blockchain = blockchainObj, form=form, formNL= formNL);
+    return render_template('transaction.html', title = "Transaction", blockchain = blockchain_obj, form=form, formNL= formNL);
 
 @app.route("/minerPage")
 def minerPage():
-	return render_template('minerPage.html', title = "Mine", blockchain = blockchainObj);
+	return render_template('minerPage.html', title = "Mine", blockchain = blockchain_obj);
 
 @app.route("/node")
 def node():
@@ -60,7 +57,7 @@ def register():
     if form.validate_on_submit():
         #password hashing
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8');
-        keyGen = blockchainObj.generateKeys();
+        keyGen = blockchain_obj.generateKeys();
         user = User(name=form.name.data, username=form.username.data, email=form.email.data, password=hashed_password, key = keyGen);
         db.session.add(user);
         db.session.commit();
@@ -93,7 +90,7 @@ def logout():
 @app.route("/account")
 @login_required
 def account():
-    return render_template('account.html', title='Account', blockchain = blockchainObj)
+    return render_template('account.html', title='Account', blockchain = blockchain_obj)
 
 
 
@@ -102,17 +99,17 @@ def account():
 def mine():
     print("madeit");
     miner = request.args.get('miner', None);
-    lastBlock = blockchainObj.getLastBlock();
+    lastBlock = blockchain_obj.getLastBlock();
 
-    if len(blockchainObj.pendingTransactions) <= 1:
+    if len(blockchain_obj.pendingTransactions) <= 1:
         flash(f'Not enough pending transactions to mine! (Must be > 1)', 'danger');
     else:
-        feedback = blockchainObj.minePendingTransactions(miner);
+        feedback = blockchain_obj.minePendingTransactions(miner);
         if feedback:
             flash(f'Block Mined! Your mining reward has now been added to the pending transactions!', 'success');
         else:
             flash(f'Error!', 'danger');
-    return render_template('minerPage.html', title = "Mine", blockchain = blockchainObj);
+    return render_template('minerPage.html', title = "Mine", blockchain = blockchain_obj);
 
   
 @app.route('/transactions/new', methods=['POST'])
@@ -122,7 +119,7 @@ def new_transaction():
     if not all(k in values for k in required):
         return 'Missing values', 400;
 
-    index = blockchainObj.addTransaction(values['sender'], values['reciever'], values['amt'])
+    index = blockchain_obj.addTransaction(values['sender'], values['reciever'], values['amt'])
 
     response = {'message': f'Transaction will be added to Block {index}'}
     return jsonify(response), 201;
@@ -130,12 +127,12 @@ def new_transaction():
 @app.route('/chain', methods=['GET'])
 def full_chain():
     response = {
-        'chain': blockchainObj.chainJSONencode(),
-        'length': len(blockchainObj.chain),
+        'chain': blockchain_obj.chainJSONencode(),
+        'length': len(blockchain_obj.chain),
     }
     return jsonify(response), 200
 
-#blockchainObj DECENTRALIZED NODES
+#blockchain_obj DECENTRALIZED NODES
 @app.route('/nodes/register', methods=['POST'])
 def register_nodes():
     values = request.get_json()
@@ -145,28 +142,28 @@ def register_nodes():
         return "Error: Please supply a valid list of nodes", 400
 
     for node in nodes:
-        blockchainObj.register_node(node)
+        blockchain_obj.register_node(node)
 
     response = {
         'message': 'New nodes have been added',
-        'total_nodes': list(blockchainObj.nodes),
+        'total_nodes': list(blockchain_obj.nodes),
     }
     return jsonify(response), 201
 
 
 @app.route('/nodes/resolve', methods=['GET'])
 def consensus():
-    replaced = blockchainObj.resolveConflicts()
+    replaced = blockchain_obj.resolveConflicts()
 
     if replaced:
         response = {
             'message': 'Our chain was replaced',
-            'new_chain': blockchainObj.chainJSONencode()
+            'new_chain': blockchain_obj.chainJSONencode()
         }
     else:
         response = {
             'message': 'Our chain is authoritative',
-            'chain': blockchainObj.chainJSONencode()
+            'chain': blockchain_obj.chainJSONencode()
         }
 
     return jsonify(response), 200
