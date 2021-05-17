@@ -136,8 +136,6 @@ class Blockchain (object):
         public_key = key.publickey().export_key()
         file_out = open("receiver.pem", "wb")
         file_out.write(public_key)
-
-        print(public_key.decode('ASCII'))
         return key.publickey().export_key().decode('ASCII')
 
     def chainJSONencode(self):
