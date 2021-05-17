@@ -38,21 +38,7 @@
         {% endwith %}
         <form method = "POST", action = "">
           {{ form.hidden_tag() }}
-
-          <div class="form-group">
-            {% if form.email.errors  %}
-              {{ form.email(class="form-control form-control-lg is-invalid") }}
-
-              <div class = "invalid-feedback">
-                {% for error in form.email.errors %}
-                  <span> {{ error }} </span>
-                {% endfor %}
-              </div>
-            {% else %}
-              {{ form.email(class="form-control form-control-lg")}}
-            {% endif %}
-          </div>
-
+          
           <div class="form-group">
             {% if form.password.errors  %}
               {{ form.password(class="form-control form-control-lg is-invalid") }}
@@ -64,8 +50,7 @@
               </div>
             {% else %}
               {{ form.password(class="form-control form-control-lg")}}
-            {% endif %}
-            
+            {% endif %}  
           </div>
 
           <div class="form-group">

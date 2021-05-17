@@ -17,8 +17,6 @@
   <!-- Custom styles for this template-->
   <link href="{{ url_for('static', filename = 'css/sb-admin.css')}}" rel="stylesheet" type="text/css">
 
-
-
 </head>
 
 <body class="bg-dark">
@@ -55,19 +53,6 @@
               </div>
             {% else %}
               {{ form.username(class="form-control form-control-lg")}}
-            {% endif %}
-          </div>
-          <div class="form-group">
-            {% if form.email.errors  %}
-              {{ form.email(class="form-control form-control-lg is-invalid") }}
-
-              <div class = "invalid-feedback">
-                {% for error in form.email.errors %}
-                  <span> {{ error }} </span>
-                {% endfor %}
-              </div>
-            {% else %}
-              {{ form.email(class="form-control form-control-lg")}}
             {% endif %}
           </div>
           <div class="form-group">
@@ -120,8 +105,6 @@
   <!-- Core plugin JavaScript-->
   <script type = "text/javascript" 
          src = "{{ url_for('static', filename = 'vendor/jquery-easing/jquery.easing.min.js') }}" ></script>
-
-
 
 </body>
 
