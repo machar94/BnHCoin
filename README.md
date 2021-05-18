@@ -26,11 +26,6 @@ If you want to add a new package to the pipenv environment run the following com
 pipenv install [package]
 ```
 
-Make sure to update the requirements.txt file if you do so for the Heroku web app.
-
-``` zsh
-pipenv lock -r > requirements.txt
-```
 ## Create database
 
 In the bnhcoin folder open a python interpreter and run the following:
