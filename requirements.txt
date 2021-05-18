@@ -1,35 +1,152 @@
-autopep8 @ file:///home/conda/feedstock_root/build_artifacts/autopep8_1619771482781/work
-bcrypt @ file:///opt/concourse/worker/volumes/live/7540a0c1-471d-4a61-5243-0bfec3601197/volume/bcrypt_1607022666156/work
+absl-py==0.1.10
+alabaster==0.7.12
+amqp==2.4.2
+appnope==0.1.2
+argon2-cffi==20.1.0
+astroid==2.5
+async-generator==1.10
+attrs==21.2.0
+Babel==2.9.1
+backcall==0.2.0
+billiard==3.6.0.0
+bleach==3.3.0
 brotlipy==0.7.0
+celery==4.3.0
 certifi==2020.12.5
-cffi @ file:///opt/concourse/worker/volumes/live/a70943eb-ad97-40c6-78c9-98764c1bee07/volume/cffi_1613246936716/work
-chardet @ file:///opt/concourse/worker/volumes/live/7e1102c4-8702-40f2-63d6-f260ce5f85e4/volume/chardet_1607706831384/work
-click @ file:///tmp/build/80754af9/click_1620867881259/work
-cryptography @ file:///opt/concourse/worker/volumes/live/d5dda287-c0b3-4861-7262-fab05baa64dc/volume/cryptography_1616769284011/work
-dnspython==1.16.0
-email-validator @ file:///tmp/build/80754af9/email-validator_1605066663875/work
-Flask @ file:///home/conda/feedstock_root/build_artifacts/flask_1620915283058/work
-Flask-Bcrypt==0.7.1
-Flask-Login==0.5.0
-Flask-SQLAlchemy @ file:///home/conda/feedstock_root/build_artifacts/flask-sqlalchemy_1616102249273/work
-Flask-WTF==0.14.3
-greenlet @ file:///opt/concourse/worker/volumes/live/3d030e63-590e-4f13-439a-f458077e6fdc/volume/greenlet_1620913624685/work
-idna @ file:///home/linux1/recipes/ci/idna_1610986105248/work
-importlib-metadata @ file:///opt/concourse/worker/volumes/live/bdafb81c-7edc-4122-77fe-a69839ec3c71/volume/importlib-metadata_1617877361684/work
-itsdangerous @ file:///tmp/build/80754af9/itsdangerous_1620980201111/work
-Jinja2 @ file:///home/conda/feedstock_root/build_artifacts/jinja2_1620874486631/work
-jsonpickle @ file:///home/conda/feedstock_root/build_artifacts/jsonpickle_1618250231429/work
-MarkupSafe @ file:///Users/runner/miniforge3/conda-bld/markupsafe_1620868408562/work
-pycodestyle @ file:///tmp/build/80754af9/pycodestyle_1615748559966/work
-pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
-pycryptodome @ file:///Users/runner/miniforge3/conda-bld/pycryptodome_1617833663991/work
-pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1608057966937/work
-PySocks @ file:///opt/concourse/worker/volumes/live/112288ac-9cb0-4e73-768b-13baf4ca6419/volume/pysocks_1605305820043/work
-requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1608156231189/work
-six @ file:///opt/concourse/worker/volumes/live/34b5b2b5-c9cb-44fb-4b8e-8a9a881bfa35/volume/six_1605205329242/work
-SQLAlchemy @ file:///opt/concourse/worker/volumes/live/b6febf8f-acef-469a-46dc-a4b8012d6bce/volume/sqlalchemy_1620712420650/work
-toml @ file:///tmp/build/80754af9/toml_1616166611790/work
-urllib3 @ file:///tmp/build/80754af9/urllib3_1615837158687/work
-Werkzeug @ file:///home/conda/feedstock_root/build_artifacts/werkzeug_1620898604979/work
-WTForms @ file:///tmp/build/80754af9/wtforms_1597707484216/work
-zipp @ file:///tmp/build/80754af9/zipp_1615904174917/work
+cffi==1.14.5
+chardet==4.0.0
+Click==7.0
+cloudpickle==1.6.0
+colorama==0.4.4
+conda==4.10.1
+conda-package-handling==1.7.3
+cryptography==3.4.7
+cycler==0.10.0
+dask==1.1.4
+decorator==5.0.7
+defusedxml==0.7.1
+docutils==0.17.1
+entrypoints==0.3
+Flask==1.0.2
+html5lib==0.9999999
+idna==2.10
+imageio==2.2.0
+imagesize==1.2.0
+importlib-metadata==3.10.0
+ipykernel==5.3.4
+ipython==7.13.0
+ipython-genutils==0.2.0
+ipywidgets==7.1.2
+isort==5.8.0
+itsdangerous==1.1.0
+jedi==0.18.0
+Jinja2==2.11.3
+jsonschema==3.2.0
+jupyter==1.0.0
+jupyter-client==6.1.12
+jupyter-console==5.2.0
+jupyter-core==4.7.1
+jupyterlab-pygments==0.1.2
+keyring==22.3.0
+kombu==4.5.0
+lazy-object-proxy==1.6.0
+lxml==4.1.1
+Markdown==2.6.11
+MarkupSafe==1.1.1
+matplotlib==2.1.2
+mccabe==0.6.1
+mistune==0.8.4
+nb-conda==2.2.1
+nb-conda-kernels==2.3.1
+nbclient==0.5.3
+nbconvert==6.0.7
+nbformat==5.1.3
+nest-asyncio==1.5.1
+networkx==2.2
+notebook==6.3.0
+numpy==1.13.3
+numpydoc==1.1.0
+object-detection==0.1
+olefile==0.44
+packaging==20.9
+pandas==0.24.2
+pandocfilters==1.4.3
+parso==0.8.2
+pbr==5.1.3
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==4.3.0
+pip==21.0.1
+prometheus-client==0.10.1
+prompt-toolkit==3.0.17
+protobuf==3.5.1
+psutil==5.8.0
+ptyprocess==0.7.0
+pycodestyle==2.7.0
+pycosat==0.6.3
+pycparser==2.20
+pyflakes==2.3.1
+pygccxml==1.9.1
+Pygments==2.8.1
+pylint==2.7.4
+PyOpenGL==3.1.0
+PyOpenGL-accelerate==3.1.0
+pyOpenSSL==20.0.1
+pyparsing==2.4.7
+pyplusplus==1.8.1
+PyQt5==5.12.1
+PyQt5-sip==4.19.15
+pyrsistent==0.17.3
+PySocks==1.7.1
+python-dateutil==2.8.1
+pytz==2021.1
+PyWavelets==1.0.2
+pyzmq==20.0.0
+QtAwesome==1.0.2
+qtconsole==5.0.3
+QtPy==1.9.0
+requests==2.25.1
+rope==0.18.0
+ruamel-yaml-conda==0.15.100
+scikit-image==0.14.2
+scikit-learn==0.20.3
+scipy==1.2.1
+Send2Trash==1.5.0
+setuptools==52.0.0.post20210125
+simplegeneric==0.8.1
+six==1.15.0
+snowballstemmer==2.1.0
+Sphinx==4.0.1
+sphinxcontrib-applehelp==1.0.2
+sphinxcontrib-devhelp==1.0.2
+sphinxcontrib-htmlhelp==1.0.3
+sphinxcontrib-jsmath==1.0.1
+sphinxcontrib-qthelp==1.0.3
+sphinxcontrib-serializinghtml==1.1.4
+spyder==3.3.6
+spyder-kernels==0.5.2
+stevedore==1.30.1
+tensorflow==1.5.0
+tensorflow-tensorboard==1.5.1
+terminado==0.9.4
+testpath==0.4.4
+toml==0.10.2
+toolz==0.9.0
+tornado==6.1
+tqdm==4.59.0
+traitlets==4.3.3
+typed-ast==1.4.2
+typing-extensions==3.7.4.3
+urllib3==1.26.4
+vine==1.3.0
+virtualenv==15.1.0
+virtualenv-clone==0.5.1
+virtualenvwrapper==4.8.4
+wcwidth==0.2.5
+webencodings==0.5.1
+Werkzeug==0.14.1
+wheel==0.36.2
+widgetsnbextension==3.1.4
+wrapt==1.12.1
+wurlitzer==2.1.0
+zipp==3.4.1
