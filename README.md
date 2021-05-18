@@ -72,3 +72,11 @@ Mr1HFu+iJrysHhtH+bBwWznFViWrjHYMrTcuqNubHfVox8oVpd4o8xXNB/kuLB/1
 YQIDAQAB
 -----END PUBLIC KEY-----
 ```
+
+## Setting up Heroku Web Server
+
+First create or update your requirements.txt with all the packages you currently use in your environment. Note that environment.yaml is for setting up your conda environment locally. Ensure that when you call pip, you call the pip in the anaconda or miniconda environment. Check by running `which pip`.
+
+``` zsh
+pip freeze > requirements.txt
+```
