@@ -1,4 +1,10 @@
-# Installation instructions
+# Overview
+
+A webserver to interact with a blockchain.
+
+![Home Page](imgs/homepage.png)
+
+## Installation instructions
 
 Use pip to install pipenv.
 
@@ -18,15 +24,7 @@ Activate the pipenv.
 pipenv shell
 ```
 
-## Updating repo with packages
-
-If you want to add a new package to the pipenv environment run the following command and it will be added to the Pipfile.
-
-``` zsh
-pipenv install [package]
-```
-
-## Create database
+### Create database
 
 In the bnhcoin folder open a python interpreter and run the following:
 
@@ -36,6 +34,42 @@ In the bnhcoin folder open a python interpreter and run the following:
 ```
 
 You should notice that a site.db file has been created in the folder.
+
+### Web Server
+
+Create a Heroku account and install the [CLI](https://devcenter.heroku.com/articles/heroku-cli) tools.
+
+Login in and follow the instructions.
+
+``` zsh
+heroku login
+```
+
+Create a web app. Heroku looks at the Procfile to see what to run once the repository is pushed.
+
+``` zsh
+heroku create [web-app-name]
+```
+
+Check to see that heroku is listed as a remote.
+
+``` zsh
+git remote -v
+```
+
+Push the app. Open the link displayed in the terminal in a browser.
+
+``` zsh
+git push heroku master
+```
+
+## Updating the web app
+
+If you want to add a new package to the pipenv environment run the following command and it will be added to the Pipfile.
+
+``` zsh
+pipenv install [package]
+```
 
 ## Example Keys
 
@@ -85,12 +119,4 @@ OHhgfMOTMDBm7QLQfyetle+R+HkKIwld8oYGbr0NlrXHiiRpJCcP/ztZXuG8FCe+
 Mr1HFu+iJrysHhtH+bBwWznFViWrjHYMrTcuqNubHfVox8oVpd4o8xXNB/kuLB/1
 YQIDAQAB
 -----END PUBLIC KEY-----
-```
-
-## Setting up Heroku Web Server
-
-First create or update your requirements.txt with all the packages you currently use in your environment. Note that environment.yaml is for setting up your conda environment locally. Ensure that when you call pip, you call the pip in the anaconda or miniconda environment. Check by running `which pip`.
-
-``` zsh
-pip list --format=freeze > requirements.txt
 ```
