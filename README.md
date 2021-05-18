@@ -1,17 +1,36 @@
 # Installation instructions
 
-Create a conda environment from the environment file:
+Use pip to install pipenv.
 
-``` bash
-conda env create -f environment.yaml 
+``` zsh
+pip install pipenv
 ```
 
-If you ever require a new package, add the package to the list of dependendencies and update the environment
+Create a pip environment in the root of the repository. This will install the necessary packages.
 
-``` bash
-conda env update -f environment.yaml
+``` zsh
+pipenv install
 ```
 
+Activate the pipenv.
+
+``` zsh
+pipenv shell
+```
+
+## Updating repo with packages
+
+If you want to add a new package to the pipenv environment run the following command and it will be added to the Pipfile.
+
+``` zsh
+pipenv install [package]
+```
+
+Make sure to update the requirements.txt file if you do so for the Heroku web app.
+
+``` zsh
+pipenv lock -r > requirements.txt
+```
 ## Create database
 
 In the bnhcoin folder open a python interpreter and run the following:

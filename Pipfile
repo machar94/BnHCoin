@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+autopep8 = "*"
+bcrypt = "*"
+flask = "*"
+jsonpickle = "*"
+pycryptodome = "*"
+requests = "*"
+flask-sqlalchemy = "*"
+flask-bcrypt = "*"
+flask-login = "*"
+flask-wtf = "*"
+gunicorn = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
