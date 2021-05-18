@@ -71,6 +71,14 @@ If you want to add a new package to the pipenv environment run the following com
 pipenv install [package]
 ```
 
+Then update the web app.
+
+``` zsh
+git add .
+git commit -m "commit message"
+git push heroku master
+```
+
 ## Example Keys
 
 See blockchain.generateKeys for details on how RSA is used to generate public and private keys.
