@@ -79,7 +79,9 @@ git commit -m "commit message"
 git push heroku master
 ```
 
-## Example Keys
+## Security
+
+Digital signatures are used in the application to verify that transactions being sent are not tampered, authenticate who sent a transaction, and prevent users from retracting transactions (once a transaction has been signed and broadcast, it is final). Signature algorithms include RSA, ECDSA (Elliptic Curve Digital Signature Algorithm) and EdDSA (Edwards-curve Digital Signature Algorithm). ECDSA is preferred over RSA because of shorter key lengths, shorter signature lengths, and higher security levels for the same key length. As an example a 3072-bit RSA signature has the same security strenght as a 256-bit ECDSA signature.
 
 See blockchain.generateKeys for details on how RSA is used to generate public and private keys.
 
