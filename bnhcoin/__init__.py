@@ -10,7 +10,7 @@ import bnhcoin.blockchain as blockchain
 
 
 # Instantiate the blockchain
-blockchain_obj = blockchain.Blockchain();
+chain = blockchain.Blockchain();
 
 
 # Instantiate our node

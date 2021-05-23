@@ -1,15 +1,28 @@
+from datetime import datetime
+from ecdsa import SigningKey, SECP256k1
+from flask import Flask
+from textwrap import dedent
+from time import time
+from urllib.parse import urlparse
+from uuid import uuid4
+
 import hashlib
 import json
-from textwrap import dedent
-from uuid import uuid4
 import jsonpickle
-from flask import Flask
-from urllib.parse import urlparse
-from Crypto.PublicKey import RSA
-from Crypto.Signature import *
-from time import time
-from datetime import datetime
 import requests
+
+
+class Keys():
+    @classmethod
+    def generate_keys(cls) -> None:
+        # PEM files are privacy enhanced mail certificate file
+        signing_key = SigningKey.generate(curve=SECP256k1)
+        with open('private.pem', 'wb') as file:
+            file.write(signing_key.to_pem())
+
+        verifying_key = signing_key.verifying_key
+        with open('public.pem', 'wb') as file:
+            file.write(verifying_key.to_pem())
 
 
 class Blockchain (object):
@@ -187,7 +200,7 @@ class Blockchain (object):
             chain.append(block)
         return chain
 
-    def getBalance(self, person):
+    def get_balance(self, person):
         balance = 0
         for i in range(1, len(self.chain)):
             block = self.chain[i]

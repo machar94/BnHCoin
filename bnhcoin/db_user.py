@@ -11,7 +11,6 @@ class User(db.Model, UserMixin):
     name = db.Column(db.String(35), unique = False, nullable=False);
     username = db.Column(db.String(15), unique = True, nullable=False);
     password = db.Column(db.String(120), unique = False, nullable=False);
-    key = db.Column(db.String(100000), unique = True, nullable=False);
 
     def __repr__(self):
         return f"User('{self.name}', '{self.username}')";
