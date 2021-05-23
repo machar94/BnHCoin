@@ -42,3 +42,12 @@ keys = VerifyingKey.from_public_key_recovery(signature, msg, SECP256k1, hashfunc
 print('Possible public keys:')
 for key in keys:
     print(key.to_string().hex())
+
+# Write keys to file
+pem = signing_key.to_pem()
+with open('private.pem', 'wb') as file:
+    file.write(pem)
+
+pem = verifying_key.to_pem()
+with open('public.pem', 'wb') as file:
+    file.write(pem)
